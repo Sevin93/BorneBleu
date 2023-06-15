@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bornes index{% endblock %}
+
+{% block body %}
+    <h1>Bornes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero_borne</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for borne in bornes %}
+            <tr>
+                <td>{{ borne.id }}</td>
+                <td>{{ borne.numeroBorne }}</td>
+                <td>
+                    <a href="{{ path('app_bornes_show', {'id': borne.id}) }}">show</a>
+                    <a href="{{ path('app_bornes_edit', {'id': borne.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bornes_new') }}">Create new</a>
+    <a href="{{ path('app_home') }}">Retour</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Bornes{% endblock %}
+
+{% block body %}
+    <h1>Create new Bornes</h1>
+
+    {{ include('bornes/_form.html.twig') }}
+
+    <a href="{{ path('app_bornes_index') }}">back to list</a>
+{% endblock %}

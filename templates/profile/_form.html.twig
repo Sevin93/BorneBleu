@@ -1,0 +1,49 @@
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                {{ form_start(form) }}
+
+                {% set labelClass = 'font-weight-bold' %}
+
+                <div class="form-inline mb-4">
+                    {{ form_label(form.email, 'Email', {'label_attr': {'class': labelClass}}) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control form-control-lg mx-sm-3'}}) }}
+                </div>
+
+
+                <div class="form-inline mb-4">
+                    {{ form_label(form.password, 'Password', {'label_attr': {'class': labelClass}}) }}
+                    {{ form_widget(form.password, {'attr': {'class': 'form-control form-control-lg mx-sm-3'}}) }}
+                </div>
+
+                <div class="form-inline mb-4">
+                    {{ form_label(form.civilite, 'Civilité', {'label_attr': {'class': labelClass}}) }}
+                    {{ form_widget(form.civilite, {'attr': {'class': 'form-control mx-sm-3'}}) }}
+                    {{ form_errors(form.civilite) }}
+                </div>
+
+                <div class="form-inline mb-4">
+                    {{ form_label(form.nom, 'Nom', {'label_attr': {'class': labelClass}}) }}
+                    {{ form_widget(form.nom, {'attr': {'class': 'form-control form-control-lg mx-sm-3'}}) }}
+                </div>
+
+                <div class="form-inline mb-4">
+                    {{ form_label(form.prenom, 'Prénom', {'label_attr': {'class': labelClass}}) }}
+                    {{ form_widget(form.prenom, {'attr': {'class': 'form-control form-control-lg mx-sm-3'}}) }}
+                </div>
+
+                <div class="form-inline mb-4">
+                    {{ form_label(form.tel, 'Tél', {'label_attr': {'class': labelClass}}) }}
+                    {{ form_widget(form.tel, {'attr': {'class': 'form-control form-control-lg mx-sm-3'}}) }}
+                </div>
+
+                {{ form_widget(form) }}
+                <button class="btn">{{ button_label|default('Save') }}</button>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

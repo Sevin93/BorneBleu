@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Bornes{% endblock %}
+
+{% block body %}
+    <h1>Edit Bornes</h1>
+
+    {{ include('bornes/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_bornes_index') }}">back to list</a>
+
+    {{ include('bornes/_delete_form.html.twig') }}
+{% endblock %}

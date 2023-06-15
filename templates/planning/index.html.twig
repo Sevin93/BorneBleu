@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planning index{% endblock %}
+
+
+
+{% block body %}
+    <h1>Planning index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>heure</th>
+
+                <th>Borne</th>
+                <th>Heure_debut</th>
+                <th>Heure_fin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for planning in plannings %}
+            <tr>
+
+                <td>{{ planning.nbheure}}</td>
+
+                <td>{%  if planning.getBorneId %}
+                    {{ planning.getBorneId.getNumeroBorne }}
+                {% endif %}</td>
+                <td>{{ planning.heureDebut ? planning.heureDebut|date(' H:i:s') : '' }}</td>
+                <td>{{ planning.heureFin ? planning.heureFin|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_planning_show', {'id': planning.id}) }}">show</a>
+                    {% if app.user %}
+                         {% if app.user.getRoles is same as('ROLE_ADMIN') %}
+                             <a href="{{ path('app_planning_edit', {'id': planning.id}) }}">edit</a>
+                        {% endif %}
+
+                        <a href="">Réserver</a>
+
+                    {% endif %}
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_planning_new') }}">Create new</a>
+{% endblock %}

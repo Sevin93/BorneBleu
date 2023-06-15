@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+<select name="temps_creneau">
+    <option value="30min">30minutes</option>
+    <option value="1h">1 heure</option>
+    <option value="2h">2 heure</option>
+</select>
+
+<select name="heure_creneau">
+    <option value="09:00" >9h00</option>
+    <option value="09:30">9h30</option>
+    <option value="10:00">10h00</option>
+    <option value="10:30">10h30</option>
+</select>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

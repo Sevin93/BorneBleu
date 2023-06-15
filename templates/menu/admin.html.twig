@@ -1,0 +1,62 @@
+{% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="{{ path('app_home') }}">
+                    <img src="{{ asset('images/drancy.png') }}" width="90" height="50" alt="">
+                </a>
+            </nav>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                    <li class="nav-item col-5">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}"><i class="bi bi-house-door-fill"></i><br/>Accueil</a>
+                        </center>
+                    </li>
+
+                    <li class="nav-item dropdown col-5">
+                        <center>
+                            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-badge"></i><br/>Employés
+                            </a>
+
+                            <ul class="dropdown-menu p-0">
+                                <li><a class="dropdown-item pt-2 pb-2" href="{{ path('app_utilisateurs') }}">Gestion des employés</a></li>
+                                <li><a class="dropdown-item pt-2 pb-2" href="{{ path('app_register') }}">Ajouter un employé</a></li>
+                            </ul>
+                        </center>
+                    <li class="nav-item col-5">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}"><i class="bi bi-bank2"></i><br/>Filiale</a>
+                        </center>
+                    </li>
+                    </li>
+
+
+                    <li class="nav-item dropdown col-5">
+                        <center>
+                            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-people-fill"></i><br/>Equipes
+                            </a>
+
+                            <ul class="dropdown-menu p-0">
+                                <li><a class="dropdown-item pt-2 pb-2" href="{{ path('app_home') }}">Liste des équipes</a></li>
+                                <li><a class="dropdown-item pt-2 pb-2" href="{{ path('app_home') }}">Ajouter un métier</a></li>
+                            </ul>
+                        </center>
+                    </li>
+
+                    <li class="nav-item col-8">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}"><i class="bi bi-power"></i><br/>Déconnexion</a>
+                        </center>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}

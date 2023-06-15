@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+<h3 class="text-center fw-bold">Mon profil</h3><br/>
+
+<div class="container col-6 d-grid gap-4 mb-5">
+    <div class="row">
+        <div class="card px-5 py-4">
+            <div class="card-body">
+                <h4>Profil public</h4>
+                <hr>
+                <div class="mb-3 row d-flex">
+                    <label class="col-sm-4 col-form-label text-end fw-bold">Civilité</label>
+                    <div class="col-sm-3 col-form-label">{{ user.civilite }}</div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label text-end fw-bold">Nom</label>
+                    <div class="col-sm-7 col-form-label">{{ user.nom }}</div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label text-end fw-bold">Prénom</label>
+                    <div class="col-sm-7 col-form-label">{{ user.prenom }}</div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label text-end fw-bold">E-mail</label>
+                    <div class="col-sm-7 col-form-label">{{ user.email }}</div>
+                </div>
+                <center>
+                <a class="btn btn-warning"  href="{{ path('app_profile_edit', {'id': user.id}) }}">Modifier</a>
+                </center>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+    <br/><br/>
+{% endblock %}
