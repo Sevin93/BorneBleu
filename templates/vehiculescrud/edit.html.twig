@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Vehicules{% endblock %}
+
+{% block body %}
+    <div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Modifier le véhicule</h3><br/>
+</div>
+
+  {{ include('vehiculescrud/_form.html.twig', {'button_label': 'Finalisez la modification'}) }}
+
+ <div class="mb-auto p-3">
+    <button onclick="window.history.back()" class="btn btn-dark " role="button" aria-disabled="true">Retour</button>
+   
+<div class="d-flex flex-row-reverse">
+  
+        {{ include('vehiculescrud/_delete_form.html.twig') }}
+</div> 
+
+  
+
+    
+{% endblock %}

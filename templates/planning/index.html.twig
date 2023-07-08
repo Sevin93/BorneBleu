@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planning index{% endblock %}
+
+
+
+{% block body %}
+  <div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Toutes les réservations</h3><br/>
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table w-75 bg-light mt-2 p-2">
+        <thead>
+        <tr class="table-secondary">
+                <th>Date</th>
+                <th>Borne</th>
+                <th>Heure Début</th>
+                <th>Heure Fin</th>
+                <th>E-mail</th>
+                 <th>Matricule</th>
+
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for planning in plannings %}
+            <tr>
+
+                <td>{{planning.date ? planning.date|date('Y-m-d') : '' }}</td>
+
+                <td>{%  if planning.getBorneId %}
+                    {{ planning.getBorneId.getNumeroBorne }}
+                {% endif %}</td>
+                <td>{{ planning.heureDebut ? planning.heureDebut|date(' H:i:s') : '' }}</td>
+                <td>{{ planning.heureFin ? planning.heureFin|date('H:i:s') : '' }}</td>
+                 <td>{{planning.user.email }}</td>
+                 {% if planning.user.affectation %}
+                 <td>{{planning.user.affectation.vehicules.matricule}}</td>
+                  {% else %}
+                  <td>Aucun véhicule</td>
+
+                {% endif %}
+                 
+                  
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+<div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Modifier le profil</h3><br/>
+</div>
+    {{ include('profile/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+     {% if is_granted('ROLE_USER') %}
+    <div class="mb-auto p-3">
+    <button onclick="window.history.back()" class="btn btn-dark " role="button" aria-disabled="true">Retour</button>
+    
+    {% endif %}
+<div class="d-flex flex-row-reverse">
+    {% if is_granted('ROLE_ADMIN') %}
+        {{ include('profile/_delete_form.html.twig') }}
+    
+    {% endif %}
+   </div> 
+
+{% endblock %}

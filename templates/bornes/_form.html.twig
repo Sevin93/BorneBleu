@@ -1,0 +1,24 @@
+{% block body %}
+<div class="container col-6 d-grid gap-4 mb-5">
+    <div class="row">         
+        <div class="card px-5 py-4">
+            <div class="card-body">
+                <div class="mb-3 row">
+
+                {{ form_start(form) }}
+
+                {% set labelClass = 'font-weight-bold' %}
+           <div class="form-inline mb-4">
+                {{ form_label(form.numero_borne, 'Numéro :', {'label_attr': {'class': labelClass}}) }}
+                {{ form_widget(form.numero_borne, {'attr': {'class': 'form-control form-control-lg '}}) }}
+                </div>
+   
+                {{ form_widget(form) }}
+                <button class="btn btn-warning">{{ button_label|default('Enregistrer') }}</button>
+                 
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

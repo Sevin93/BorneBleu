@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicules index{% endblock %}
+
+{% block body %}
+   <div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Liste des véhicules</h3><br/>
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table w-75 bg-light mt-2 p-2">
+        <thead>
+            <tr class="table-secondary">
+                <th>Numéro</th>
+                <th>Matricule</th>
+                <th>Modele</th>
+                <th>Marque</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehicule in vehicules %}
+            <tr>
+                <td>{{ vehicule.id }}</td>
+                <td>{{ vehicule.matricule }}</td>
+                <td>{{ vehicule.modele }}</td>
+                <td>{{ vehicule.marque }}</td>
+                <td>
+                  
+                    <a href="{{ path('app_vehiculescrud_edit', {'id': vehicule.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+   
+    <div class="d-grid gap-2 col-3 mx-auto">
+
+        <a href="{{ path('app_vehiculescrud_new') }}" class="btn btn-warning" type="button">Ajouter une véhicule</a>
+    </div>
+{% endblock %}

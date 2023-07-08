@@ -1,0 +1,41 @@
+body{
+    background-color: #87CEFA !important;
+}
+.jaune{
+    background-color: #FFFF00;
+    color: white;
+}
+.bleu-clair{
+    background-color: #87CEFA;
+}
+
+.navbar{
+    padding-left: 20px;
+}
+.contenu-body{
+    margin-top:40px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+}
+.macarte-info{
+    width: 400px;
+}
+.monconseiller-info{
+    width: 450px;
+}
+.comptecourant-info{
+    width: 500px;
+}
+.personne-icone{
+    font-size:50px;
+}
+.deconnexion-icone{
+    font-size:25px;
+    margin-right: 14px;
+}
+.ligneTab{
+    cursor: pointer;
+}
+
+

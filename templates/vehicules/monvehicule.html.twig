@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicules index{% endblock %}
+
+{% block body %}
+   <div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Mon véhicule</h3><br/>
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table w-75 bg-light mt-2 p-2">
+        <thead>
+            <tr class="table-secondary">
+                
+                <th>Matricule</th>
+                <th>Modele</th>
+                <th>Marque</th>
+                 <th>Puissance</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% if affectation  %}
+            <tr>
+              
+                <td>{{ affectation.vehicules.matricule }}</td>
+                <td>{{ affectation.vehicules.modele }}</td>
+                <td>{{ affectation.vehicules.marque }}</td>
+                <td>{{ affectation.vehicules.puissance }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+   
+  
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affectation index{% endblock %}
+
+{% block body %}
+   <div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Liste des affectations </h3><br/>
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table w-75 bg-light mt-2 p-2">
+        <thead>
+        <tr class="table-secondary">
+               
+                <th>Date début</th>
+                <th>Date Fin</th>
+                 <th>Matricule</th>
+                 <th>Employé</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for affectation in affectations %}
+            <tr>
+               
+                <td>{{ affectation.datedebut ? affectation.datedebut|date('m-d-Y') : '' }}</td>
+                <td>{{ affectation.datefin ? affectation.datefin|date('d-m-Y') : '' }}</td>
+                <td>{{ affectation.vehicules.matricule }}</td>
+                <td>{{ affectation.user.nom}} {{ affectation.user.prenom}}</td>
+                <td>
+                    
+                    <a href="{{ path('app_affectationcrud_edit', {'id': affectation.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+    <div class="d-grid gap-2 col-3 mx-auto">
+    <a href="{{ path('app_affectationcrud_new') }}" class="btn btn-warning" type="button">Ajouter une nouvelle affectation</a>
+    </div>
+   
+{% endblock %}

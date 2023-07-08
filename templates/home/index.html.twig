@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div class="mb-auto p-3">
+  <h3 class="text-center fw-bold">Tableau de  Bord</h3><br/>
+</div>
+  {% if is_granted('ROLE_ADMIN') %}
+    <div class="d-flex justify-content-evenly">
+      <div class="row mx-4 col-4">
+        <div class="card px-3 py-2">
+          <div class="card-body">
+            {% if app.user %}
+            <h4 class="px-4">Bonjour {{ app.user.civilite }} {{ app.user.nom }} !</h4>
+            {% else %}
+              <h4 class="px-4">Vous n'etes pas connecté</h4>
+            {% endif %}
+            <hr class="mx-4">
+            <div class="mb-3 row">
+              <label class="col-sm-4 col-form-label text-end fw-bold">Utilisateur: </label>
+              <div class="col-sm-7 col-form-label">Administrateur</div>
+            </div>
+            <div class="mb-3 row">
+              <label class="col-sm-4 col-form-label text-end fw-bold">E-mail: </label>
+              <div class="col-sm-7 col-form-label"> {{ app.user.email }}</div>
+            </div>
+
+          </div>
+          <div class="d-grid gap-2 col-8 mx-auto">
+              <a href="{{ path('app_register_admin') }}" class="btn btn-warning" type="button">Ajouter un nouveau Administrateur</a>
+             </div>
+        </div>
+      </div>
+      <div class="row mx-4 col-5">
+        <div class="card px-3 py-2">
+          <div class="card-body">
+            <h4 px-4>Gestion des bornes </h4>
+           
+            <center><a href="{{ path('app_bornes_index') }}" class="btn btn-outline-warning">Voir plus</a></center>
+            <hr>
+           <h4 px-4>Gestion des services</h4>
+           
+            <center><a href="{{ path('app_servicescrud_index') }}" class="btn btn-outline-warning">Voir plus</a></center>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+  {% elseif is_granted('ROLE_USER') %}
+    <div class="d-flex justify-content-evenly">
+      <div class="row mx-4 col-4">
+        <div class="card px-3 py-2">
+          <div class="card-body">
+            {% if app.user %}
+              <h4 class="px-4">Bonjour {{ app.user.civilite }} {{ app.user.nom }} !</h4>
+              <div class="mb-auto p-3">
+              <h5  class="px-4"> Votre prochaine réservation: </h5>
+              </div>
+           <center>
+              <div class="card text-white bg-primary mb-4" style="max-width: 18rem;">
+              <div class="card-body">
+  
+          
+              {% if planning %}
+
+                <tr  >
+                <i class="bi bi-calendar-event-fill"></i>
+                <td>Le {{ planning.date ? planning.date|date('d/m/Y') : '' }}</td>
+                <br>
+                <i class="bi bi-clock-fill"></i>
+                <td>{{  planning.heureDebut|date('H:i')  }}</td>
+                <td>à {{  planning.heureFin|date('H:i')  }}</td>
+                </br>
+                <i class="bi bi-lightning-charge-fill"></i>
+                <td>borne numéro {{ planning.getBorneId.getNumeroBorne }}.</td>
+             
+            </tr>
+              {% else %}
+               Vous n'avez aucune réservation
+              {% endif %}
+
+            {% else %}
+              <h4 class="px-4">Vous n'etes pas connecté</h4>
+            {% endif %}
+           </div>
+          </div>
+        <center>
+            <hr class="mx-4">
+            <div class="mb-3 row">
+
+        </div>
+      </div>
+
+    </div>
+  {% endif %}
+{% endblock %}

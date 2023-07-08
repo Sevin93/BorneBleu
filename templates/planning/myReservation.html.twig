@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Mes réservations</h3><br/>
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table w-75 bg-light mt-2 p-2">
+        <thead>
+        <tr class="table-secondary">
+            <th>Date</th>
+            <th>Borne</th>
+            <th>Heure Début</th>
+            <th>Heure Fin</th>
+             <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set cptplanning = 1 %}
+        {% for planning in plannings %}
+            {% set planningDate = planning.date|date('Y-m-d') %}
+            {% set currentDate = date()|date("Y-m-d") %}
+            <tr  {% if cptplanning>4%} class="d-none to-hide"  {% endif %}>
+                <td>{{ planning.date ? planning.date|date('d/m/Y') : '' }}</td>
+                <td>{{ planning.getBorneId.getNumeroBorne }}</td>
+                <td>{{  planning.heureDebut|date('H:i:s')  }}</td>
+                <td>{{  planning.heureFin|date('H:i:s')  }}</td>
+                 <td>
+                {% if  planningDate > currentDate %}
+                    {% set  planningTime =  planning.heureDebut|date('H:i:s') %}
+                    {% set  currentTime = "now"|date('H:i:s') %}
+                    {{ include('planning/_delete_form.html.twig') }}
+
+                {% elseif planningDate == currentDate %}
+                    {% set  planningTime =  planning.heureDebut|date('H:i:s') %}
+                    {% set  currentTime = "now"|date('H:i:s') %}
+                    {% if  planningTime >= currentTime %}
+                        {{ include('planning/_delete_form.html.twig') }}
+                    {% else %}
+                    Réservation Passé
+                    {% endif %}
+
+                {% else %}
+                Réservation Passé
+                {% endif %}
+                </td>
+                
+            </tr>
+            {% set cptplanning = cptplanning + 1 %}
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+    <div class="col-12 d-flex justify-content-center mb-3">
+    <button class="btn btn-dark" id="showmore">Voir plus</button>
+    <button class="btn btn-dark d-none" id="showless">Voir moins</button>
+
+    </div>
+    <div class="d-grid gap-2 col-3 mx-auto">
+
+        <a href="{{ path('app_planning_new') }}" class="btn btn-warning" type="button">Faire une nouvelle réservation</a>
+    </div>
+    <script src="{{ asset('js/planning.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bornes index{% endblock %}
+
+{% block body %}
+   <div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Les bornes électriques</h3><br/>
+</div>
+<div class="d-flex justify-content-center col-4 mx-auto ">
+    <table  class="table bg-light mt-2 p-3">
+        <thead>
+        <tr class="table-secondary">
+
+
+            <th>Borne N°</th>
+             <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for borne in bornes %}
+            <tr>
+               
+                <td>{{ borne.numeroBorne }}</td>
+                <td>
+                    <a href="{{ path('app_bornes_edit', {'id': borne.id}) }}">Modifier</a>
+                  
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="d-grid gap-2 col-3 mx-auto">
+    <a href="{{ path('app_bornes_new') }}" class="btn btn-warning" type="button">Ajouter une borne</a>
+</div>
+
+{% endblock %}

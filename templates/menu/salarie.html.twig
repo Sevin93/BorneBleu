@@ -1,0 +1,54 @@
+{% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="https://www.drancy.fr">
+                    <img src="{{ asset('images/drancy.png') }}" width="90" height="50" alt="">
+                </a>
+            </nav>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item col-4">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}"><i class="bi bi-house-door-fill"></i><br/>Accueil</a>
+                        </center>
+                    </li>
+
+
+                    <li class="nav-item col-4">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_planning_new') }}"><i class="bi bi-calendar-plus-fill"></i><br/>Réservation</a>
+                        </center>
+                    </li>
+                    <li class="nav-item col-4">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_planning_user', {'id': app.user.id}) }}"><i class="bi bi-calendar-check-fill"></i><br/>Mes Réservations</a>
+                        </center>
+                    </li>
+                    <li class="nav-item col-4">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_profile_index') }}"><i class="bi bi-person-lines-fill"></i><br/>Mon Profil</a>
+                        </center>
+                    </li>
+                    <li class="nav-item col-4">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_monvehicule') }}"><i class="bi bi-slash-circle"></i><br/>Mon véhicule</a>
+                        </center>
+                    </li>
+
+
+
+                    <li class="nav-item col-4">
+                        <center>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}"><i class="bi bi-power"></i><br/>Déconnexion</a>
+                        </center>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}

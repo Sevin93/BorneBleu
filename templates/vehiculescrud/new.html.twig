@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Vehicules{% endblock %}
+
+{% block body %}
+    <div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Ajouter un véhicule</h3><br/>
+</div>
+
+    {{ include('vehiculescrud/_form.html.twig') }}
+    
+
+  <div class="mb-auto p-3">
+     <div class="d-grid gap-2 col-3 mx-auto">
+
+        <a href="{{ path('app_vehiculescrud_index') }}" class="btn btn-dark" type="button">Retour</a>
+    </div>
+  </div>
+
+   
+{% endblock %}

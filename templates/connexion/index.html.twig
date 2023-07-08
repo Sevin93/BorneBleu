@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Gestion de réservation des bornes électriques</h3><br/>
+</div>
+    <center>
+        <div class="card col-8 connexion pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-5 mt-5 mb-5">
+                        <img src="{{ asset('images/Hôtel_ville_Drancy_.jpeg') }}" class="card-img-top" alt="...">
+
+                    </div>
+                    <div class="col-7 mt-3 mb-4">
+                        <div class="card-body">
+                            <h2 class="fw-bold">Connexion</h2><br/>
+                            <!--- <?php
+                                if (!empty($errors)) {
+                                echo '
+                                    <div class="container col-10">
+                                        <div class="row">
+                                            <div class="card">
+                                                <div class="card-body">';
+                                                echo '<p class="text-danger">';
+                                                foreach ($errors as $error){
+                                                    echo $error.'<br/>';
+                                                }
+                                                echo '</p>';
+                                echo '
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><br/>';
+                                }
+                            ?> -->
+
+                            <div class="connexion-form mx-5">
+                                <form method="post" action="">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" placeholder="name@example.com" name="email" {#value="{{ last_username }} #}>
+                                        <label for="floatingInput">E-mail</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" placeholder="Password" name="mdp">
+                                        <label for="floatingPassword">Mot de passe</label>
+                                    </div>
+                                    <br/>
+
+                                    <div class="btn-connect">
+                                        <button class="btn btn-outline-success" type="submit" name="SeConnecter">Se connecter</button>
+                                     
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/>
+    </center>
+{% endblock %}

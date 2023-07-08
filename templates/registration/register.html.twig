@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Ajouter un employé</h3>
+                            {{ form_start(registrationForm) }}
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                  
+                                    {{ form_label(registrationForm.civilite,  'Civilité ', {'label_attr': {'class': 'form-label'}})  }}
+                                    {{ form_widget(registrationForm.civilite, { 'attr': {'class': 'form-control'} }) }}
+                                    {{ form_errors(registrationForm.civilite) }}
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        {{ form_label(registrationForm.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+                                        {{ form_widget(registrationForm.nom, {'label_attr': {'class': 'form-control form-control-lg'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            {{ form_label(registrationForm.prenom, 'Prénom', {'label_attr': {'class': 'form-label'}}) }}
+                                            {{ form_widget(registrationForm.prenom, {'label_attr': {'class': 'form-control form-control-lg'}}) }}
+                                        {#    <input type="text" id="firstName" class="form-control form-control-lg" />
+                                            <label class="form-label" for="firstName">First Name</label>#}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            {{ form_label(registrationForm.tel, 'Tél', {'label_attr': {'class': 'form-label'}}) }}
+                                            {{ form_widget(registrationForm.tel, {'label_attr': {'class': 'form-control form-control-lg'}}) }}
+                                            {#    <input type="text" id="firstName" class="form-control form-control-lg" />
+                                            <label class="form-label" for="firstName">First Name</label>#}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            {{ form_label(registrationForm.poste, 'Poste', {'label_attr': {'class': 'form-label'}}) }}
+                                            {{ form_widget(registrationForm.poste, {'label_attr': {'class': 'form-control form-control-lg'}}) }}
+                                            {#    <input type="text" id="firstName" class="form-control form-control-lg" />
+                                            <label class="form-label" for="firstName">First Name</label>#}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            {{ form_label(registrationForm.services, 'Service', {'label_attr': {'class': 'form-label'}}) }}
+                                            {{ form_widget(registrationForm.services, {'label_attr': {'class': 'form-control form-control-lg'}}) }}
+                                            {#    <input type="text" id="firstName" class="form-control form-control-lg" />
+                                            <label class="form-label" for="firstName">First Name</label>#}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 pb-2">
+                                        <div class="form-outline">
+                                            {{ form_label(registrationForm.email, 'E-mail', {'label_attr': {'class': 'form-label'}}) }}
+                                            {{ form_widget(registrationForm.email, {'label_attr': {'class': 'form-control form-control-lg'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4 pb-2">
+                                        <div class="form-outline">
+                                            {{ form_row(registrationForm.plainPassword, {
+                                                label: 'Mot de passe'
+                                            }) }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                        
+                                <div class="d-grid gap-2 col-3 mx-auto">
+                                    <input class="btn btn-warning" type="submit" value="Enregistrer" />
+                                </div>
+                                     {{ form_end(registrationForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

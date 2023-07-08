@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planning index{% endblock %}
+
+
+
+{% block body %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+<div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">La liste des utilisateurs</h3><br/>
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table w-75 bg-light mt-2 p-2">
+        <thead>
+        <tr class="table-secondary">
+            <th>Civilité</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Tél</th> 
+            <th>Service</th>     
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in profiles %}
+            <tr>
+                <td>{{ user.civilite}}</td>
+                <td>{{ user.nom}}</td>
+                <td>{{ user.prenom}}</td>
+                <td>{{ user.email}}</td>
+                <td>{{ user.tel}}</td>
+            {% if user.services %}
+                <td>{{ user.services.nom}}</td>
+                {% else  %}
+                 <td> Aucun service </td>
+               {% endif %}
+                <td>
+                    <a href="{{ path('app_profile_edit', {'id': user.id}) }}">Modifier</a>
+                </td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <a href="{{ path('app_register') }}" class="btn btn-warning" type="button">Ajouter un utilisateur</a>
+        </div>
+
+    {% endif %}
+{% endblock %}

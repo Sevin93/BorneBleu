@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Services{% endblock %}
+
+{% block body %}
+     <div class="mb-auto p-3">
+    <h3 class="text-center fw-bold">Ajouter un service</h3><br/>
+</div>
+
+    {{ include('servicescrud/_form.html.twig') }}
+<div class="mb-auto p-3">
+    <button onclick="window.history.back()" class="btn btn-dark " role="button" aria-disabled="true">Retour</button>
+</div>
+{% endblock %}
