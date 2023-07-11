@@ -12,8 +12,9 @@
             <tr class="table-secondary">
                 <th>Numéro</th>
                 <th>Matricule</th>
-                <th>Modele</th>
+                <th>Modèle</th>
                 <th>Marque</th>
+                 <th>Puissance</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
                 <td>{{ vehicule.matricule }}</td>
                 <td>{{ vehicule.modele }}</td>
                 <td>{{ vehicule.marque }}</td>
+                <td>{{ vehicule.puissance }}</td>
                 <td>
                   
                     <a href="{{ path('app_vehiculescrud_edit', {'id': vehicule.id}) }}">Modifier</a>
@@ -31,7 +33,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
